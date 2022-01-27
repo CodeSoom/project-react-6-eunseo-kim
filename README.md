@@ -1,1 +1,1 @@
-# project-react-6-eunseo-kim-kim
+# project-react-6-eunseo-kim
