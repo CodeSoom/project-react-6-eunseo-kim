@@ -33,7 +33,7 @@ export default function Header() {
       <MenuItems>
         <li><Link to="/">home</Link></li>
         <li><Link to="/about">about</Link></li>
-        <li><Link to="/courses">courses</Link></li>
+        <li><Link to="/cardsets">cardsets</Link></li>
         <li><Link to="/login">log in</Link></li>
         <li><Link to="/signup">sign up</Link></li>
       </MenuItems>

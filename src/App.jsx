@@ -1,11 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
 
-import Header from './Header';
-import HomePage from './HomePage';
+import Header from './components/Header';
+import HomePage from './pages/HomePage';
+import CardsetsPage from './pages/CardsetsPage';
+import CardsPage from './pages/CardsPage';
 
 // TODO: delete these and make each page
 function AboutPage() { return (<div>about</div>); }
-function CoursesPage() { return (<div>courses</div>); }
 function LoginPage() { return (<div>log in</div>); }
 function SignupPage() { return (<div>sign up</div>); }
 
@@ -18,9 +19,10 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/courses" element={<CoursesPage />} />
+        <Route path="/cardsets" element={<CardsetsPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/cardsets/:id" element={<CardsPage />} />
       </Routes>
     </div>
   );

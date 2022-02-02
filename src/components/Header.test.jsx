@@ -22,7 +22,7 @@ describe('Header', () => {
       </MemoryRouter>,
     );
 
-    const menus = ['home', 'about', 'courses', 'log in', 'sign up'];
+    const menus = ['home', 'about', 'cardsets', 'log in', 'sign up'];
 
     menus.forEach((menu) => {
       expect(getByText(menu)).not.toBeNull();

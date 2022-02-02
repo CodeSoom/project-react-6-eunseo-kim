@@ -1,10 +1,22 @@
 import { render } from '@testing-library/react';
 
+import { useSelector } from 'react-redux';
+
 import { MemoryRouter } from 'react-router-dom';
 
 import App from './App';
 
+import cardsets from './fixtures/cardsets';
+
 describe('App', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+
+    useSelector.mockImplementation((selector) => selector({
+      cardsets,
+    }));
+  });
+
   function renderApp({ path }) {
     return render(
       <MemoryRouter initialEntries={[path]}>
@@ -29,11 +41,11 @@ describe('App', () => {
     });
   });
 
-  context("with path '/courses'", () => {
-    it('renders the courses page', () => {
-      const { container } = renderApp({ path: '/courses' });
+  context("with path '/cardsets'", () => {
+    it('renders the cardsets page', () => {
+      const { container } = renderApp({ path: '/cardsets' });
 
-      expect(container).toHaveTextContent('courses');
+      expect(container).toHaveTextContent('cardsets');
     });
   });
 

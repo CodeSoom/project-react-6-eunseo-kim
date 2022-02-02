@@ -47,7 +47,7 @@ export default function HomePage() {
         <Button
           type="button"
         >
-          <Link to="/courses">Start Now!</Link>
+          <Link to="/cardsets">Start Now!</Link>
         </Button>
       </Description>
       <Image src="./src/img/done.svg" alt="" />
