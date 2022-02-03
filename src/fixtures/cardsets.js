@@ -5,6 +5,8 @@ const cardsets = [
     cards: [
       { id: 1, question: '사과를 영어로 하면?', answer: 'apple' },
       { id: 2, question: '과일을 영어로 하면?', answer: 'fruit' },
+      { id: 3, question: '3 + 3 = ?', answer: '6' },
+      { id: 4, question: '1 + 1 = ?', answer: '2' },
     ],
   },
   {

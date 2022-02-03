@@ -1,14 +1,18 @@
 import { render } from '@testing-library/react';
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { MemoryRouter } from 'react-router-dom';
 
 import CardsPage from './CardsPage';
 
 describe('CardsPage', () => {
+  const dispatch = jest.fn();
+
   beforeEach(() => {
     jest.clearAllMocks();
+
+    useDispatch.mockImplementation(() => dispatch);
 
     useSelector.mockImplementation((selector) => selector({
       cards: [

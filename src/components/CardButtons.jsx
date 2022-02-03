@@ -10,10 +10,13 @@ const CardButtonsWrapper = styled.div({
 const WrongButton = styled.button({
   width: '50px',
   marginRight: '15px',
+  backgroundColor: '#e44b88',
   border: 'none',
   borderRadius: '30px',
-  backgroundColor: '#e44b88',
   color: 'white',
+  ':hover': {
+    cursor: 'pointer',
+  },
 });
 
 const FlipButton = styled.button({
@@ -21,31 +24,45 @@ const FlipButton = styled.button({
   marginRight: '15px',
   border: 'none',
   borderRadius: '30px',
+  ':hover': {
+    cursor: 'pointer',
+  },
 });
 
 const CorrectButton = styled.button({
   width: '50px',
+  backgroundColor: '#01dca4',
   border: 'none',
   borderRadius: '30px',
-  backgroundColor: '#01dca4',
   color: 'white',
+  ':hover': {
+    cursor: 'pointer',
+  },
 });
 
-export default function CardButtons() {
+export default function CardButtons({ onFlip, onClick }) {
+  const handleClick = (event) => {
+    const { target: { innerHTML } } = event;
+    onClick(innerHTML);
+  };
+
   return (
     <CardButtonsWrapper>
       <WrongButton
         type="button"
+        onClick={handleClick}
       >
         X
       </WrongButton>
       <FlipButton
         type="button"
+        onClick={onFlip}
       >
         FLIP
       </FlipButton>
       <CorrectButton
         type="button"
+        onClick={handleClick}
       >
         O
       </CorrectButton>
