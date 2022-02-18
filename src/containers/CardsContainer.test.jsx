@@ -6,11 +6,6 @@ import { MemoryRouter } from 'react-router-dom';
 
 import CardsContainer from './CardsContainer';
 
-import {
-  setFlipped,
-  setCardIndex,
-} from '../actions';
-
 describe('CardsContainer', () => {
   const dispatch = jest.fn();
 
@@ -38,8 +33,7 @@ describe('CardsContainer', () => {
       </MemoryRouter>,
     );
 
-    expect(dispatch).toBeCalledWith(setFlipped(false));
-    expect(dispatch).toBeCalledWith(setCardIndex(0));
+    expect(dispatch).toBeCalledTimes(1);
   });
 
   it('renders flip button and listens click event', () => {
@@ -56,7 +50,7 @@ describe('CardsContainer', () => {
 
     fireEvent.click(getByRole('button', { name: 'FLIP' }));
 
-    expect(dispatch).toBeCalledWith(setFlipped(!given.flipped));
+    expect(dispatch).toBeCalledTimes(2);
   });
 
   context('when the card is the last one', () => {
@@ -72,14 +66,12 @@ describe('CardsContainer', () => {
 
       fireEvent.click(getByRole('button', { name: 'O' }));
 
-      expect(dispatch).toBeCalledWith(setCardIndex(lastIndex));
+      expect(dispatch).toBeCalledTimes(2);
     });
 
     context('when the card is not the last one', () => {
       it("changes the card index when 'O' button clicked", () => {
-        const cardIndex = 0;
-        const changedCardIndex = cardIndex + 1;
-        given('cardIndex', () => cardIndex);
+        given('cardIndex', () => 0);
 
         const { getByRole } = render(
           <MemoryRouter>
@@ -89,7 +81,7 @@ describe('CardsContainer', () => {
 
         fireEvent.click(getByRole('button', { name: 'O' }));
 
-        expect(dispatch).toBeCalledWith(setCardIndex(changedCardIndex));
+        expect(dispatch).toBeCalledTimes(2);
       });
     });
   });

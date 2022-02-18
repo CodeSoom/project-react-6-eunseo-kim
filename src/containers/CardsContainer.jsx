@@ -8,8 +8,9 @@ import Card from '../components/Card';
 import CardButtons from '../components/CardButtons';
 
 import {
-  setFlipped,
-  setCardIndex,
+  initializeCard,
+  flipCard,
+  nextCard,
 } from '../actions';
 
 import { get } from '../utils';
@@ -31,8 +32,7 @@ export default function CardsContainer() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setFlipped(false));
-    dispatch(setCardIndex(0));
+    dispatch(initializeCard());
   }, []);
 
   const cards = useSelector(get('cards'));
@@ -41,18 +41,11 @@ export default function CardsContainer() {
   const card = cards[cardIndex];
 
   const handleFlip = () => {
-    dispatch(setFlipped(!flipped));
+    dispatch(flipCard());
   };
 
   const handleClick = () => {
-    // TODO: 일단 다음 카드로 넘어가도록만 구현 / X, O 처리에 대한 추가 구현 필요
-    if (cardIndex < cards.length - 1) {
-      dispatch(setCardIndex(cardIndex + 1));
-    } else {
-      dispatch(setCardIndex(cards.length - 1));
-    }
-
-    dispatch(setFlipped(false));
+    dispatch(nextCard(cardIndex));
   };
 
   return (
