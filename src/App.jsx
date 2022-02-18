@@ -23,6 +23,7 @@ export default function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/cardsets/:id" element={<CardsPage />} />
+        <Route path="*" element={<div>not found</div>} />
       </Routes>
     </div>
   );

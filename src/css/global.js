@@ -1,11 +1,9 @@
+import { css } from '@emotion/react';
+
+const global = css`
 * {
     margin: 0;
     padding: 0;
-}
-
-@font-face {
-    font-family: 'GowunDodum-Regular';
-    src: url('../fonts/GowunDodum-Regular.ttf') format('truetype');
 }
 
 body {
@@ -13,7 +11,6 @@ body {
     line-height: 1.5;
     background: #FFF;
     color: #000;
-    font-family: 'GowunDodum-Regular';
 }
 
 ul {
@@ -23,4 +20,6 @@ ul {
 a {
     color: black;
     text-decoration: none;
-}
+}`;
+
+export default global;
